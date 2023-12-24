@@ -56,7 +56,7 @@ function createPayment(req, res) {
     let tmnCode = "VIPPZCZL";
     let secretKey = "ZTSECFZPOIDUTNAUZXTKSGYPOUCHHBBQ";
     let vnpUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    let returnUrl = "http://localhost:3088/api/s3/vnpIpn";
+    let returnUrl = "https://system-service-production.up.railway.app//api/s3/vnpIpn";
     let orderId = moment(date).format('DDHHmmss');
     let amount = custom.amount;
     let bankCode = "NCB";
