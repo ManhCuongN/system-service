@@ -1,7 +1,7 @@
 // server.js
 const express = require('express');
 const app = express();
-const port = 3088;
+
 
 const cors = require("cors");
 app.use(express.json());
@@ -271,6 +271,7 @@ app.get("/api/s3/test", (req, res) => {
   res.json({mess: "XIN CHÀO S3"})
 });
 
+const port = process.env.PORT || 3088
 
 
 
