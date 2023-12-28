@@ -56,7 +56,7 @@ function createPayment(req, res) {
     let tmnCode = "VIPPZCZL";
     let secretKey = "ZTSECFZPOIDUTNAUZXTKSGYPOUCHHBBQ";
     let vnpUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    let returnUrl = "https://system-service-production.up.railway.app//api/s3/vnpIpn";
+    let returnUrl = "https://api-gateway-production-187c.up.railway.app/api/s3/vnpIpn";
     let orderId = moment(date).format('DDHHmmss');
     let amount = custom.amount;
     let bankCode = "NCB";
@@ -129,7 +129,7 @@ function vnpayIpn(req,res, next) {
             if(checkAmount){
                 if(paymentStatus=="0"){ //kiểm tra tình trạng giao dịch trước khi cập nhật tình trạng thanh toán
                     if(rspCode=="00"){
-                        res.redirect('http://localhost:3006/pucharse-success'); 
+                        res.redirect('https://lambent-klepon-30bcab.netlify.app/pucharse-success'); 
                         //thanh cong
                         //paymentStatus = '1'
                         // Ở đây cập nhật trạng thái giao dịch thanh toán thành công vào CSDL của bạn

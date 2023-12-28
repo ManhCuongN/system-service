@@ -61,7 +61,7 @@ io.on("connection", (socket) => {
   socket?.on("created discount", async(mess) => {
     try {
       console.log("mess", mess);
-      const res = await axios.get(`https://product-service-production-0ee8.up.railway.app/v1/api/shop/getInfo/${mess.shopId}`)
+      const res = await axios.get(`https://api-gateway-production-187c.up.railway.app/v1/api/shop/getInfo/${mess.shopId}`)
       
   
       const text = `${res.data.metadata.name} created discount with code ${mess.code}`
