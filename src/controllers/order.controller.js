@@ -16,6 +16,21 @@ class OrderController {
           }
     }
 
+    
+    deleteOrder = async(req,res,next) => {
+      const {orderId} = req.body
+      console.log("orderid",req.body);
+      try {
+        const result = await OrderService.deleteOrderById(orderId);
+        console.log(result);
+        return res.json(result)
+
+      } catch (error) {
+           console.error('Error fetching notifications:', error.message);
+            return { success: false, message: 'Error fetching notifications.' };
+      }
+    }
+
     getListOrderByShop = async(req,res,next) => {
       
         const {shopId, order_status} = req.body

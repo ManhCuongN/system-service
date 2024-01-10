@@ -12,6 +12,16 @@ class OrderService {
     }
   }
 
+  
+  static deleteOrderById = async (orderId) => {
+    try {
+      const deletedOrder = await order.findByIdAndDelete(orderId);
+      return deletedOrder;
+    } catch (error) {
+      throw error
+    }
+  }
+
   static updateOrderToFillByUser = async (orderId) => {
     try {
       const result = await order.updateOne(
