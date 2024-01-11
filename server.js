@@ -253,6 +253,8 @@ app.post("/api/s3/create_payment_normal/", createPaymentOrderNormal);
 app.get("/api/s3/vnpIpn", vnpayIpn);
 app.get("/api/s3/get-list-noti/:userId", notiController.getListNotiByUser);
 app.post("/api/s3/get-list-order", orderController.getListOrderByUser);
+app.get("/api/s3/get-order-byId/:orderId", orderController.getOrderById);
+
 app.delete("/api/s3/delete-order", orderController.deleteOrder);
 app.post("/api/s3/get-list-order-by-shop", orderController.getListOrderByShop);
 app.patch("/api/s3/update/order-to-confirmed/:orderId", orderController.updateOrderToConfirm);

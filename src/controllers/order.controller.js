@@ -16,12 +16,24 @@ class OrderController {
           }
     }
 
-    
     deleteOrder = async(req,res,next) => {
-      const {orderId} = req.body
+      const {orderId, falatArr} = req.body
       console.log("orderid",req.body);
       try {
-        const result = await OrderService.deleteOrderById(orderId);
+        const result = await OrderService.deleteOrderById(orderId, falatArr);
+        console.log(result);
+        return res.json(result)
+
+      } catch (error) {
+           console.error('Error fetching notifications:', error.message);
+            return { success: false, message: 'Error fetching notifications.' };
+      }
+    }
+
+    getOrderById = async(req,res,next) => {
+      const {orderId} = req.params
+      try {
+        const result = await OrderService.getOrderById(orderId);
         console.log(result);
         return res.json(result)
 
